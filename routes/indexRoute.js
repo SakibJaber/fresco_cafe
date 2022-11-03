@@ -1,12 +1,11 @@
-const router = require( "express" ).Router();
+const router = require("express").Router();
 
-const adminRoute = require( "./adminRoute" );
+const homeRoute = require("./homeRoute");
+const adminRoute = require("./adminRoute");
 
- const api = process.env.API_URL;
+const api = process.env.API_URL;
 
-router.use( `${api}`, adminRoute );
-
-
-
+router.use(`/`, homeRoute);
+router.use(`${api}`, adminRoute);
 
 module.exports = router;
