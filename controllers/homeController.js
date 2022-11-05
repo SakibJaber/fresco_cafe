@@ -1,6 +1,8 @@
 
 const homeControll=( req, res ) => {
-    res.send('this is admin route')
+    res.render( 'index', {
+        'name':'World'
+    })
 } 
 
 module.exports = {
