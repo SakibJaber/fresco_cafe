@@ -27,7 +27,7 @@ router.use( `/reservation`, reservationRoute );
 
 // DASHBOARD
 router.use( `/admin`, adminRoute );
-router.use( `/profile`, adminProfile );
+router.use( `/admin`, adminProfile );
 
 
 
