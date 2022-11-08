@@ -6,7 +6,14 @@ const chefRoute = require( './chefRoute' );
 const contactRoute = require('./contactRoute')
 const blogRoute = require('./blogRoute')
 const aboutRoute = require('./aboutRoute')
-const reservationRoute = require('./reservationRoute')
+const reservationRoute = require( './reservationRoute' )
+
+
+// ADMIN
+const adminRoute = require( './adminRaute' )
+const adminProfile = require( './adminProfile' )
+
+
 
 
 
@@ -17,6 +24,10 @@ router.use( `/contact`, contactRoute );
 router.use( `/blog`, blogRoute );
 router.use( `/about`, aboutRoute );
 router.use( `/reservation`, reservationRoute );
+
+// DASHBOARD
+router.use( `/admin`, adminRoute );
+router.use( `/profile`, adminProfile );
 
 
 

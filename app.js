@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require( "express" );
-// const exphbs = require('express-handlebars');
+
 const { engine } = require("express-handlebars");
-// const path = require("path");
+const path = require("path");
 
 const router = require("./routes/indexRoute");
 
@@ -14,14 +14,22 @@ app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', './views');
 
-// app.engine(".hbs", exphbs.engine({ extname: ".hbs", defaultLayout: "main" }));
-
-// app.set("view engine", "hbs");
-// app.set("views", path.join(__dirname, "views"));
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'hbs');
+// app.engine('.hbs', engine(
+//   {
+//     extname: '.hbs',
+//     defaultView:'frontend/index',
+//     layoutsDir:__dirname+'/views/frontend/',
+//     defaultLayout:'frontend/layout',
+//     partialsDir:__dirname+'/views/partials'
+//   }
+// ));
 
 // SET STATIC PATH
-// const staticPath = path.join(__dirname, "./public");
-// app.use(express.static(staticPath));
+
+app.use( express.static( path.join( __dirname, 'public' ) ) );
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
