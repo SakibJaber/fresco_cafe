@@ -3,6 +3,11 @@ const getBlog=( req, res ) => {
         'name':'Blog'
     })
 }
+const getSingleBlog = ( req, res ) => {
+    res.render( 'blog-single', {
+        'name':'Blog'
+    })
+}
 
 const getAllBlog = ( req, res ) => {
     
@@ -21,6 +26,7 @@ const deleteBlog = ( req, res ) => {
 module.exports = {
     getBlog,
     getAllBlog,
+    getSingleBlog,
     postBlog,
     updateBlog,
     deleteBlog
