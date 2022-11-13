@@ -1,294 +1,556 @@
-<main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Profile</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Profile</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section profile">
-      <div class="row">
-        <div class="col-xl-4">
-
-          <div class="card">
-            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
-              <img src="/dashboard/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <h2>Kevin Anderson</h2>
-              <h3>Web Designer</h3>
-              <div class="social-links mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-xl-8">
-
-          <div class="card">
-            <div class="card-body pt-3">
-              <!-- Bordered Tabs -->
-              <ul class="nav nav-tabs nav-tabs-bordered">
-
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
-                </li>
-
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
-                </li>
-
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
-                </li>
-
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
-                </li>
-
-              </ul>
-              <div class="tab-content pt-2">
-
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
-
-                  <h5 class="card-title">Profile Details</h5>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div class="col-lg-9 col-md-8">Web Designer</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8">USA</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
-                  </div>
-
-                </div>
-
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-
-                  <!-- Profile Edit Form -->
-                  <form>
-                    <div class="row mb-3">
-                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
-                      <div class="col-md-8 col-lg-9">
-                        <img src="/dashboard/assets/img/profile-img.jpg" alt="Profile">
-                        <div class="pt-2">
-                          <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
-                      <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control" id="about" style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="company" type="text" class="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="Web Designer">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="country" type="text" class="form-control" id="Country" value="USA">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="address" type="text" class="form-control" id="Address" value="A108 Adam Street, New York, NY 535022">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form><!-- End Profile Edit Form -->
-
-                </div>
-
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
-                  <!-- Settings Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="changesMade" checked>
-                          <label class="form-check-label" for="changesMade">
-                            Changes made to your account
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="newProducts" checked>
-                          <label class="form-check-label" for="newProducts">
-                            Information on new products and services
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="proOffers">
-                          <label class="form-check-label" for="proOffers">
-                            Marketing and promo offers
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
-                          <label class="form-check-label" for="securityNotify">
-                            Security alerts
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form><!-- End settings Form -->
-
-                </div>
-
-                <div class="tab-pane fade pt-3" id="profile-change-password">
-                  <!-- Change Password Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
-                    </div>
-                  </form><!-- End Change Password Form -->
-
-                </div>
-
-              </div>
-              <!-- End Bordered Tabs -->
-
-            </div>
-          </div>
-
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="row page-titles mx-0">
+      <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+          <h4>Hi, welcome back!</h4>
+          <p class="mb-0">Your business dashboard template</p>
         </div>
       </div>
-    </section>
-
-  </main>
+      <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="javascript:void(0)">App</a></li>
+          <li class="breadcrumb-item active"><a
+              href="javascript:void(0)"
+            >Profile</a></li>
+        </ol>
+      </div>
+    </div>
+    <!-- row -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="profile card card-body px-3 pt-3 pb-0">
+          <div class="profile-head">
+            <div class="photo-content">
+              <div class="cover-photo"></div>
+            </div>
+            <div class="profile-info">
+              <div class="profile-photo">
+                <img
+                  src="images/profile/profile.png"
+                  class="img-fluid rounded-circle"
+                  alt=""
+                />
+              </div>
+              <div class="profile-details">
+                <div class="profile-name px-3 pt-2">
+                  <h4 class="text-primary mb-0">Mitchell C. Shay</h4>
+                  <p>UX / UI Designer</p>
+                </div>
+                <div class="profile-email px-2 pt-2">
+                  <h4 class="text-muted mb-0">hello@email.com</h4>
+                  <p>Email</p>
+                </div>
+                <div class="dropdown ml-auto">
+                  <a
+                    href="#"
+                    class="btn btn-primary light sharp"
+                    data-toggle="dropdown"
+                    aria-expanded="true"
+                  ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="18px"
+                      height="18px"
+                      viewBox="0 0 24 24"
+                      version="1.1"
+                    ><g
+                        stroke="none"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"
+                      ><rect x="0" y="0" width="24" height="24"></rect><circle
+                          fill="#000000"
+                          cx="5"
+                          cy="12"
+                          r="2"
+                        ></circle><circle
+                          fill="#000000"
+                          cx="12"
+                          cy="12"
+                          r="2"
+                        ></circle><circle
+                          fill="#000000"
+                          cx="19"
+                          cy="12"
+                          r="2"
+                        ></circle></g></svg></a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-right"
+                    x-placement="bottom-end"
+                    style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-169px, 30px, 0px);"
+                  >
+                    <li class="dropdown-item"><i
+                        class="fa fa-user-circle text-primary mr-2"
+                      ></i>
+                      View profile</li>
+                    <li class="dropdown-item"><i
+                        class="fa fa-users text-primary mr-2"
+                      ></i>
+                      Add to close friends</li>
+                    <li class="dropdown-item"><i
+                        class="fa fa-plus text-primary mr-2"
+                      ></i>
+                      Add to group</li>
+                    <li class="dropdown-item"><i
+                        class="fa fa-ban text-primary mr-2"
+                      ></i>
+                      Block</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="profile-statistics mb-5">
+              <div class="text-center">
+                <div class="row">
+                  <div class="col">
+                    <h3 class="m-b-0">150</h3><span>Follower</span>
+                  </div>
+                  <div class="col">
+                    <h3 class="m-b-0">140</h3><span>Place Stay</span>
+                  </div>
+                  <div class="col">
+                    <h3 class="m-b-0">45</h3><span>Reviews</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <a
+                    href="javascript:void()"
+                    class="btn btn-primary mb-1 mr-1"
+                  >Follow</a>
+                  <a href="javascript:void()" class="btn btn-primary mb-1">Send
+                    Message</a>
+                </div>
+              </div>
+            </div>
+            <div class="profile-blog mb-5">
+              <h5 class="text-primary d-inline">Today Highlights</h5><a
+                href="javascript:void()"
+                class="pull-right f-s-16"
+              >More</a>
+              <img
+                src="images/profile/1.jpg"
+                alt=""
+                class="img-fluid mt-4 mb-4 w-100"
+              />
+              <h4>Darwin Creative Agency Theme</h4>
+              <p class="mb-0">A small river named Duden flows by their place and
+                supplies it with the necessary regelialia. It is a paradisematic
+                country, in which roasted parts of sentences fly into your
+                mouth.</p>
+            </div>
+            <div class="profile-interest mb-5">
+              <h5 class="text-primary d-inline">Interest</h5>
+              <div class="row mt-4">
+                <div class="col-lg-4 col-xl-4 col-sm-4 col-6 int-col">
+                  <a href="javascript:void()" class="interest-cat">
+                    <img src="images/profile/2.jpg" alt="" class="img-fluid" />
+                    <p>Shopping Mall</p>
+                  </a>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-sm-4 col-6 int-col">
+                  <a href="javascript:void()" class="interest-cat">
+                    <img src="images/profile/3.jpg" alt="" class="img-fluid" />
+                    <p>Photography</p>
+                  </a>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-sm-4 col-6 int-col">
+                  <a href="javascript:void()" class="interest-cat">
+                    <img src="images/profile/4.jpg" alt="" class="img-fluid" />
+                    <p>Art &amp; Gallery</p>
+                  </a>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-sm-4 col-6 int-col">
+                  <a href="javascript:void()" class="interest-cat">
+                    <img src="images/profile/2.jpg" alt="" class="img-fluid" />
+                    <p>Visiting Place</p>
+                  </a>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-sm-4 col-6 int-col">
+                  <a href="javascript:void()" class="interest-cat">
+                    <img src="images/profile/3.jpg" alt="" class="img-fluid" />
+                    <p>Shopping</p>
+                  </a>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-sm-4 col-6 int-col">
+                  <a href="javascript:void()" class="interest-cat">
+                    <img src="images/profile/4.jpg" alt="" class="img-fluid" />
+                    <p>Biking</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="profile-news">
+              <h5 class="text-primary d-inline">Our Latest News</h5>
+              <div class="media pt-3 pb-3">
+                <img
+                  src="images/profile/5.jpg"
+                  alt="image"
+                  class="mr-3 rounded"
+                  width="75"
+                />
+                <div class="media-body">
+                  <h5 class="m-b-5">Collection of textile samples</h5>
+                  <p class="mb-0">I shared this on my fb wall a few months back,
+                    and I thought.</p>
+                </div>
+              </div>
+              <div class="media pt-3 pb-3">
+                <img
+                  src="images/profile/6.jpg"
+                  alt="image"
+                  class="mr-3 rounded"
+                  width="75"
+                />
+                <div class="media-body">
+                  <h5 class="m-b-5">Collection of textile samples</h5>
+                  <p class="mb-0">I shared this on my fb wall a few months back,
+                    and I thought.</p>
+                </div>
+              </div>
+              <div class="media pt-3 pb-3">
+                <img
+                  src="images/profile/7.jpg"
+                  alt="image"
+                  class="mr-3 rounded"
+                  width="75"
+                />
+                <div class="media-body">
+                  <h5 class="m-b-5">Collection of textile samples</h5>
+                  <p class="mb-0">I shared this on my fb wall a few months back,
+                    and I thought.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="profile-tab">
+              <div class="custom-tab-1">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item"><a
+                      href="#my-posts"
+                      data-toggle="tab"
+                      class="nav-link active show"
+                    >Posts</a>
+                  </li>
+                  <li class="nav-item"><a
+                      href="#about-me"
+                      data-toggle="tab"
+                      class="nav-link"
+                    >About Me</a>
+                  </li>
+                  <li class="nav-item"><a
+                      href="#profile-settings"
+                      data-toggle="tab"
+                      class="nav-link"
+                    >Setting</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div id="my-posts" class="tab-pane fade active show">
+                    <div class="my-post-content pt-3">
+                      <div class="post-input">
+                        <textarea
+                          name="textarea"
+                          id="textarea"
+                          cols="30"
+                          rows="5"
+                          class="form-control bg-transparent"
+                          placeholder="Please type what you want...."
+                        ></textarea>
+                        <a
+                          href="javascript:void()"
+                          class="btn btn-primary light px-3"
+                        ><i class="fa fa-link"></i> </a>
+                        <a
+                          href="javascript:void()"
+                          class="btn btn-primary light mr-1 px-3"
+                        ><i class="fa fa-camera"></i> </a><a
+                          href="javascript:void()"
+                          class="btn btn-primary"
+                        >Post</a>
+                      </div>
+                      <div class="profile-uoloaded-post border-bottom-1 pb-5">
+                        <img
+                          src="images/profile/8.jpg"
+                          alt=""
+                          class="img-fluid"
+                        />
+                        <a class="post-title" href="javascript:void()">
+                          <h4>Collection of textile samples lay spread</h4>
+                        </a>
+                        <p>A wonderful serenity has take possession of my entire
+                          soul like these sweet morning of spare which enjoy
+                          whole heart.A wonderful serenity has take possession
+                          of my entire soul like these sweet morning of spare
+                          which enjoy whole heart.</p>
+                        <button class="btn btn-primary mr-2"><span
+                            class="mr-2"
+                          ><i class="fa fa-heart"></i></span>Like</button>
+                        <button class="btn btn-secondary"><span class="mr-2"><i
+                              class="fa fa-reply"
+                            ></i></span>Reply</button>
+                      </div>
+                      <div class="profile-uoloaded-post border-bottom-1 pb-5">
+                        <img
+                          src="images/profile/9.jpg"
+                          alt=""
+                          class="img-fluid"
+                        />
+                        <a class="post-title" href="javascript:void()">
+                          <h4>Collection of textile samples lay spread</h4>
+                        </a>
+                        <p>A wonderful serenity has take possession of my entire
+                          soul like these sweet morning of spare which enjoy
+                          whole heart.A wonderful serenity has take possession
+                          of my entire soul like these sweet morning of spare
+                          which enjoy whole heart.</p>
+                        <button class="btn btn-primary mr-2"><span
+                            class="mr-2"
+                          ><i class="fa fa-heart"></i></span>Like</button>
+                        <button class="btn btn-secondary"><span class="mr-2"><i
+                              class="fa fa-reply"
+                            ></i></span>Reply</button>
+                      </div>
+                      <div class="profile-uoloaded-post pb-5">
+                        <img
+                          src="images/profile/8.jpg"
+                          alt=""
+                          class="img-fluid"
+                        />
+                        <a class="post-title" href="javascript:void()">
+                          <h4>Collection of textile samples lay spread</h4>
+                        </a>
+                        <p>A wonderful serenity has take possession of my entire
+                          soul like these sweet morning of spare which enjoy
+                          whole heart.A wonderful serenity has take possession
+                          of my entire soul like these sweet morning of spare
+                          which enjoy whole heart.</p>
+                        <button class="btn btn-primary mr-2"><span
+                            class="mr-2"
+                          ><i class="fa fa-heart"></i></span>Like</button>
+                        <button class="btn btn-secondary"><span class="mr-2"><i
+                              class="fa fa-reply"
+                            ></i></span>Reply</button>
+                      </div>
+                      <div class="text-center mb-2"><a
+                          href="javascript:void()"
+                          class="btn btn-primary"
+                        >Load More</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="about-me" class="tab-pane fade">
+                    <div class="profile-about-me">
+                      <div class="pt-4 border-bottom-1 pb-3">
+                        <h4 class="text-primary">About Me</h4>
+                        <p class="mb-2">A wonderful serenity has taken
+                          possession of my entire soul, like these sweet
+                          mornings of spring which I enjoy with my whole heart.
+                          I am alone, and feel the charm of existence was
+                          created for the bliss of souls like mine.I am so
+                          happy, my dear friend, so absorbed in the exquisite
+                          sense of mere tranquil existence, that I neglect my
+                          talents.</p>
+                        <p>A collection of textile samples lay spread out on the
+                          table - Samsa was a travelling salesman - and above it
+                          there hung a picture that he had recently cut out of
+                          an illustrated magazine and housed in a nice, gilded
+                          frame.</p>
+                      </div>
+                    </div>
+                    <div class="profile-skills mb-5">
+                      <h4 class="text-primary mb-2">Skills</h4>
+                      <a
+                        href="javascript:void()"
+                        class="btn btn-primary light btn-xs mb-1"
+                      >Admin</a>
+                      <a
+                        href="javascript:void()"
+                        class="btn btn-primary light btn-xs mb-1"
+                      >Dashboard</a>
+                      <a
+                        href="javascript:void()"
+                        class="btn btn-primary light btn-xs mb-1"
+                      >Photoshop</a>
+                      <a
+                        href="javascript:void()"
+                        class="btn btn-primary light btn-xs mb-1"
+                      >Bootstrap</a>
+                      <a
+                        href="javascript:void()"
+                        class="btn btn-primary light btn-xs mb-1"
+                      >Responsive</a>
+                      <a
+                        href="javascript:void()"
+                        class="btn btn-primary light btn-xs mb-1"
+                      >Crypto</a>
+                    </div>
+                    <div class="profile-lang mb-5">
+                      <h4 class="text-primary mb-2">Language</h4>
+                      <a
+                        href="javascript:void()"
+                        class="text-muted pr-3 f-s-16"
+                      ><i class="flag-icon flag-icon-us"></i> English</a>
+                      <a
+                        href="javascript:void()"
+                        class="text-muted pr-3 f-s-16"
+                      ><i class="flag-icon flag-icon-fr"></i> French</a>
+                      <a
+                        href="javascript:void()"
+                        class="text-muted pr-3 f-s-16"
+                      ><i class="flag-icon flag-icon-bd"></i> Bangla</a>
+                    </div>
+                    <div class="profile-personal-info">
+                      <h4 class="text-primary mb-4">Personal Information</h4>
+                      <div class="row mb-2">
+                        <div class="col-3">
+                          <h5 class="f-w-500">Name
+                            <span class="pull-right">:</span>
+                          </h5>
+                        </div>
+                        <div class="col-9"><span>Mitchell C.Shay</span>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-3">
+                          <h5 class="f-w-500">Email
+                            <span class="pull-right">:</span>
+                          </h5>
+                        </div>
+                        <div class="col-9"><span>example@examplel.com</span>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-3">
+                          <h5 class="f-w-500">Availability
+                            <span class="pull-right">:</span></h5>
+                        </div>
+                        <div class="col-9"><span>Full Time (Free Lancer)</span>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-3">
+                          <h5 class="f-w-500">Age
+                            <span class="pull-right">:</span>
+                          </h5>
+                        </div>
+                        <div class="col-9"><span>27</span>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-3">
+                          <h5 class="f-w-500">Location
+                            <span class="pull-right">:</span></h5>
+                        </div>
+                        <div class="col-9"><span>Rosemont Avenue Melbourne,
+                            Florida</span>
+                        </div>
+                      </div>
+                      <div class="row mb-2">
+                        <div class="col-3">
+                          <h5 class="f-w-500">Year Experience
+                            <span class="pull-right">:</span></h5>
+                        </div>
+                        <div class="col-9"><span>07 Year Experiences</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="profile-settings" class="tab-pane fade">
+                    <div class="pt-3">
+                      <div class="settings-form">
+                        <h4 class="text-primary">Account Setting</h4>
+                        <form>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label>Email</label>
+                              <input
+                                type="email"
+                                placeholder="Email"
+                                class="form-control"
+                              />
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label>Password</label>
+                              <input
+                                type="password"
+                                placeholder="Password"
+                                class="form-control"
+                              />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label>Address</label>
+                            <input
+                              type="text"
+                              placeholder="1234 Main St"
+                              class="form-control"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label>Address 2</label>
+                            <input
+                              type="text"
+                              placeholder="Apartment, studio, or floor"
+                              class="form-control"
+                            />
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label>City</label>
+                              <input type="text" class="form-control" />
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label>State</label>
+                              <select class="form-control" id="inputState">
+                                <option selected="">Choose...</option>
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label>Zip</label>
+                              <input type="text" class="form-control" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                              <input
+                                type="checkbox"
+                                class="custom-control-input"
+                                id="gridCheck"
+                              />
+                              <label
+                                class="custom-control-label"
+                                for="gridCheck"
+                              > Check me out</label>
+                            </div>
+                          </div>
+                          <button class="btn btn-primary" type="submit">Sign in</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
