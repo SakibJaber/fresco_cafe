@@ -9,6 +9,8 @@ const {
   deleteBlog,
 } = require("../controllers/blogController");
 
+
+
 router.get("/", getBlog);
 router.get("/", getAllBlog);
 router.get("/single", getSingleBlog);
