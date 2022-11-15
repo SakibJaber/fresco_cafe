@@ -1,8 +1,6 @@
 const getContact = (req, res) => {
-  res.render("contact", {
-    name: "contact",
-  });
-};
+  res.render("frontend/contact", {layout: 'main.hbs'});
+};;
 
 const postContact = (req, res) => {};
 

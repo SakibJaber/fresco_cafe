@@ -1,8 +1,6 @@
 const getAbout=( req, res ) => {
-    res.render( 'about', {
-        'name':'About'
-    })
-} 
+    res.render("frontend/about", {layout: 'main.hbs'});
+  };
 
 
 

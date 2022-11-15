@@ -1,8 +1,6 @@
 const getReservation= (req, res) => {
-    res.render("reservation", {
-      name: "Reservation",
-    });
-  };
+  res.render("frontend/reservation", {layout: 'main.hbs'});
+};;
   
   
   module.exports = {

@@ -1,33 +1,22 @@
-const getBlog=( req, res ) => {
-    res.render( 'blog', {
-        'name':'Blog'
-    })
-}
-const getSingleBlog = ( req, res ) => {
-    res.render( 'blog-single', {
-        'name':'Blog'
-    })
-}
+const getBlog = (req, res) => {
+  res.render("frontend/blog", { layout: "main.hbs" });
+};
 
-const getAllBlog = ( req, res ) => {
-    
-}
+const getSingleBlog = (req, res) => {
+  res.render("frontend/blog-single", { layout: "main.hbs" });
+};
 
-const postBlog = ( req, res ) => {
-    
-} 
-const updateBlog = ( req, res ) => {
-    
-} 
-const deleteBlog = ( req, res ) => {
-    
-} 
+const getAllBlog = (req, res) => {};
+
+const postBlog = (req, res) => {};
+const updateBlog = (req, res) => {};
+const deleteBlog = (req, res) => {};
 
 module.exports = {
-    getBlog,
-    getAllBlog,
-    getSingleBlog,
-    postBlog,
-    updateBlog,
-    deleteBlog
-}
+  getBlog,
+  getAllBlog,
+  getSingleBlog,
+  postBlog,
+  updateBlog,
+  deleteBlog,
+};

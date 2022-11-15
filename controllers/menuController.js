@@ -1,8 +1,6 @@
 const getMenu = (req, res) => {
-  res.render("menu", {
-    name: "menu",
-  });
-};
+  res.render("frontend/menu", {layout: 'main.hbs'});
+};;
 
 const postMenu = ( req, res ) => {
   

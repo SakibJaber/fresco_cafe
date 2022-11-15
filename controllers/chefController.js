@@ -1,8 +1,6 @@
 const getChef = (req, res) => {
-  res.render("chef", {
-    name: "chef",
-  });
-};
+  res.render("frontend/chef", {layout: 'main.hbs'});
+};;
 
 const postChef = (req, res) => {};
 const updateChef = (req, res) => {};

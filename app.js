@@ -10,7 +10,11 @@ const app = express();
 
 // VIEW ENGINE SETUP
 
-app.engine('.hbs', engine({extname: '.hbs'}));
+app.engine( '.hbs', engine( {
+    extname: '.hbs',
+    defaultView: 'frontend/index',
+    layoutsDir:__dirname+'/views/layouts'
+} ) );
 app.set('view engine', '.hbs');
 app.set('views', './views');
 
