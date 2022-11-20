@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require( "express" );
+const cors = require('cors');
 
 const { engine } = require("express-handlebars");
 const path = require("path");
@@ -7,6 +8,10 @@ const path = require("path");
 const router = require("./routes/indexRoute");
 
 const app = express();
+
+
+app.use(cors());
+app.options('*', cors());
 
 // VIEW ENGINE SETUP
 

@@ -9,13 +9,6 @@ const aboutRoute = require('./aboutRoute')
 const reservationRoute = require( './reservationRoute' )
 
 
-// ADMIN
-const adminRoute = require( './adminRaute' )
-const adminProfile = require( './adminProfile' )
-
-
-
-
 
 router.use( `/`, homeRoute );
 router.use( `/menu`, menuRoute );
@@ -26,8 +19,16 @@ router.use( `/about`, aboutRoute );
 router.use( `/reservation`, reservationRoute );
 
 // DASHBOARD
+const adminRoute = require( './adminRaute' )
+const adminProfile = require( './adminProfile' )
+const adminBlogRoute = require( './adminBlogRoute' )
+const adminMenuRoute = require( './adminMenuRoute' )
+
+
 router.use( `/admin`, adminRoute );
 router.use( `/admin`, adminProfile );
+router.use( `/admin`, adminBlogRoute);
+router.use( `/admin`, adminMenuRoute);
 
 
 

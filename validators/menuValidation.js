@@ -10,7 +10,9 @@ const validationRules = () => {
       .trim()
       .isLength({ min: 2 })
       .withMessage("Post must be atleast 2 characters long"),
-    check("image", "You must select an image.").notEmpty(),
+    check( "image", "You must select an image." ).notEmpty(),
+    check( 'category', "Must have Category" ).notEmpty(),
+    check( 'price', 'Must have a price' ).notEmpty(),
   ];
 };
 
