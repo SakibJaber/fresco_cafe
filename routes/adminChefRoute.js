@@ -1,13 +1,18 @@
+
 const router = require("express").Router();
 
 const {
-  getChef,
+  getAddChef,
+  getChefList,
+  postChef,
   updateChef,
-  deleteChef,
+  deleteChef
 } = require("../controllers/chefController");
 
-router.get("/", getChef);
 
+router.get("/chef", getAddChef);
+router.get("/chefs", getChefList);
+router.post("/chef", postChef);
 router.put("/", updateChef);
 router.delete("/", deleteChef);
 

@@ -2,17 +2,16 @@ const router = require("express").Router();
 
 const {
   getAddBlog,
-  postAddBlog,
-
+  postBlog,
   getBlogList,
 
-} = require("../controllers/adminBlogController");
+} = require("../controllers/blogController");
 
 const { validationRules, validate } = require("../validators/blogValidation");
 
 
 router.get("/blog", getAddBlog);
-router.post("/blog", validationRules(), validate, postAddBlog);
+router.post("/blog", validationRules(), validate, postBlog);
 
 router.get("/blogs", getBlogList);
 

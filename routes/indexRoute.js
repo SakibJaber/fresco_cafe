@@ -23,12 +23,14 @@ const adminRoute = require( './adminRaute' )
 const adminProfile = require( './adminProfile' )
 const adminBlogRoute = require( './adminBlogRoute' )
 const adminMenuRoute = require( './adminMenuRoute' )
+const adminChefRoute = require( './adminChefRoute' )
 
 
 router.use( `/admin`, adminRoute );
 router.use( `/admin`, adminProfile );
 router.use( `/admin`, adminBlogRoute);
 router.use( `/admin`, adminMenuRoute);
+router.use( `/admin`, adminChefRoute);
 
 
 
