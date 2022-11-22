@@ -28,8 +28,44 @@ const postChef = async (req, res) => {
     });
   }
 };
-const updateChef = (req, res) => {};
-const deleteChef = (req, res) => {};
+
+const updateChef = async (req, res) => {
+	try {
+		await Chef.findByIdAndUpdate(req.params.id, req.body);
+		return res.status(201).json({
+			message: "Chef Successfully Updated",
+			success: true,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+			success: false,
+		});
+	}
+};
+
+
+const deleteChef = async ( req, res ) => {
+	try {
+		const deleted = await Chef.findByIdAndDelete(req.params.id);
+		if (!deleted) {
+			return res.status(404).json({
+				message: "Chef Not Found",
+				success: false,
+			});
+		}
+		return res.status(204).json({
+			message: "Chef Successfully deleted",
+			success: true,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+			success: false,
+		});
+	}
+};
+
 
 module.exports = {
   getChef,

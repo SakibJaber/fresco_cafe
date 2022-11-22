@@ -13,7 +13,7 @@ const {
 router.get("/chef", getAddChef);
 router.get("/chefs", getChefList);
 router.post("/chef", postChef);
-router.put("/", updateChef);
-router.delete("/", deleteChef);
+router.put("/chef/:id", updateChef);
+router.delete("/chef/:id", deleteChef);
 
 module.exports = router;

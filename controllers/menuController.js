@@ -30,8 +30,43 @@ const postMenu = async (req, res) => {
   }
 };
 
-const updateMenu = (req, res) => {};
-const deleteMenu = (req, res) => {};
+const updateMenu = async (req, res) => {
+	try {
+		await Menu.findByIdAndUpdate(req.params.id, req.body);
+		return res.status(201).json({
+			message: "Menu Successfully Updated",
+			success: true,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+			success: false,
+		});
+	}
+};
+
+
+const deleteMenu = async ( req, res ) => {
+	try {
+		const deleted = await Menu.findByIdAndDelete(req.params.id);
+		if (!deleted) {
+			return res.status(404).json({
+				message: "Menu Not Found",
+				success: false,
+			});
+		}
+		return res.status(204).json({
+			message: "Menu Successfully deleted",
+			success: true,
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: err.message,
+			success: false,
+		});
+	}
+};
+
 
 module.exports = {
   getMenu,
