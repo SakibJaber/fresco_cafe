@@ -1,6 +1,6 @@
 const Post = require("../models/blogModel");
 
-const getBlog = ( req, res ) => {
+const getBlog = (req, res) => {
   res.render("frontend/blog", { layout: "main.hbs" });
 };
 
@@ -8,22 +8,49 @@ const getSingleBlog = (req, res) => {
   res.render("frontend/blog-single", { layout: "main.hbs" });
 };
 
-const getAllBlog = (req, res) => {};
-
 const getAddBlog = (req, res) => {
   res.render("dashboard/addBlog", { layout: "dashboardLayout.hbs" });
 };
 
 const getBlogList = (req, res) => {
-  res.render("dashboard/blogList", { layout: "dashboardLayout.hbs" });
+  Post.find((err, docs) => {
+    if (err) {
+      return res.json({ error: "something went wrong" });
+    }
+    let data = [];
+    docs.forEach((el) => {
+      data.push({
+        title: el.title,
+        description: el.description,
+        image: el.image,
+      });
+    });
+    res.render("dashboard/blogList", {
+      title: "Blog",
+      layout: "dashboardLayout.hbs",
+      data: data,
+    });
+  });
 };
-
-
 
 const postBlog = async (req, res) => {
   try {
+    let sampleFile;
+    if (!req.files || Object.keys(req.files).length === 0) {
+      return res.status(400).json({ status: "error", message: "Missing File" });
+    }
+
+    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+    sampleFile = req.files.image;
+    let random = new Date().valueOf();
+    let filePath = "uploads/" + random + "_" + sampleFile.name;
+
+    // Use the mv() method to place the file somewhere on your server
+    sampleFile.mv("public/" + filePath, function (err) {});
+
     const newBlog = new Post({
       ...req.body,
+      image: filePath,
     });
     await newBlog.save();
     return res.status(201).json({
@@ -38,55 +65,48 @@ const postBlog = async (req, res) => {
   }
 };
 
-
-
 const updateBlog = async (req, res) => {
-	try {
-		await Post.findByIdAndUpdate(req.params.id, req.body);
-		return res.status(201).json({
-			message: "Blog Successfully Updated",
-			success: true,
-		});
-	} catch (err) {
-		return res.status(500).json({
-			message: err.message,
-			success: false,
-		});
-	}
+  try {
+    await Post.findByIdAndUpdate(req.params.id, req.body);
+    return res.status(201).json({
+      message: "Blog Successfully Updated",
+      success: true,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message,
+      success: false,
+    });
+  }
 };
 
-
-const deleteBlog = async ( req, res ) => {
-	try {
-		const deleted = await Post.findByIdAndDelete(req.params.id);
-		if (!deleted) {
-			return res.status(404).json({
-				message: "Blog Not Found",
-				success: false,
-			});
-		}
-		return res.status(204).json({
-			message: "Blog Successfully deleted",
-			success: true,
-		});
-	} catch (err) {
-		return res.status(500).json({
-			message: err.message,
-			success: false,
-		});
-	}
+const deleteBlog = async (req, res) => {
+  try {
+    const deleted = await Post.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      return res.status(404).json({
+        message: "Blog Not Found",
+        success: false,
+      });
+    }
+    return res.status(204).json({
+      message: "Blog Successfully deleted",
+      success: true,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message,
+      success: false,
+    });
+  }
 };
-
-
-
 
 module.exports = {
   getBlog,
-  getAllBlog,
   getSingleBlog,
   updateBlog,
   deleteBlog,
   getAddBlog,
   postBlog,
-  getBlogList
+  getBlogList,
 };

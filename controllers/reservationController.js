@@ -1,10 +1,34 @@
-const Reservation = require( "../models/reservationModel" );
+const Reservation = require("../models/reservationModel");
 
-const getReservation = ( req, res ) => {
-  res.render("frontend/reservation", {layout: 'main.hbs'});
+const getReservation = (req, res) => {
+  res.render("frontend/reservation", { layout: "main.hbs" });
 };
 
-const postReservation = async( req, res ) => {
+const getReservationList = (req, res) => {
+  Reservation.find((err, docs) => {
+    if (err) {
+      return res.json({ error: "something went wrong" });
+    }
+    let data = [];
+    docs.forEach((el) => {
+      data.push({
+        name: el.name,
+        email: el.email,
+        phone: el.phone,
+        bookingDate: el.bookingDate,
+        bookingTime: el.bookingTime,
+        guest:el.guest,
+      });
+    } );
+    res.render("dashboard/reservationList", {
+      title: "Blog",
+      layout: "dashboardLayout.hbs",
+      data: data,
+    });
+  });
+};
+
+const postReservation = async (req, res) => {
   try {
     const newReservation = new Reservation({
       ...req.body,
@@ -20,13 +44,10 @@ const postReservation = async( req, res ) => {
       success: false,
     });
   }
-}
-  
-  
-  module.exports = {
-    getReservation,
-    postReservation,
+};
 
-    
-  };
-  
+module.exports = {
+  getReservation,
+  postReservation,
+  getReservationList,
+};

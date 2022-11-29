@@ -35,76 +35,37 @@
                 <thead class="bg-light">
                   {{! TABLE_HEAD }}
                   <tr>
-                    <th>Menu Name</th>
+                    <th>Tittle</th>
                     <th>Image</th>
-                    <th>Menu Items</th>
-                    <th>Category</th>
-                    <th>Price</th>
+                    <th>Description</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {{! TABLE_CONTENT }}
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center">
-                        <div class="ms-3">
-                          <p class="fw-bold mb-1">Beef Roast Source</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center">
-                        <img
-                          src="/dashboard/images/dish/pic3.jpg"
-                          alt=""
-                          style="width: 50px; height: 50px"
-                          class="rounded-circle"
-                        />
-                      </div>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Meat, Potatoes, Rice, Tomatoe</p>
-                    </td>
-                    <td>BREAKFAST</td>
-                    <td>$50</td>
-                    <td>
-                      <div class="d-flex">
-                        <a
-                          href="#"
-                          class="btn btn-primary shadow btn-xs sharp mr-1"
-                        ><i class="fa fa-pencil"></i></a>
-                        <a
-                          href="#"
-                          class="btn btn-danger shadow btn-xs sharp"
-                        ><i class="fa fa-trash"></i></a>
-                      </div>
-                    </td>
-                  </tr>
 
+                  {{#each data}}
                   <tr>
                     <td>
                       <div class="d-flex align-items-center">
                         <div class="ms-3">
-                          <p class="fw-bold mb-1">Beef Roast Source</p>
+                          <p class="fw-bold mb-1 tit">{{title}}</p>
                         </div>
                       </div>
                     </td>
                     <td>
                       <div class="d-flex align-items-center">
                         <img
-                          src="/dashboard/images/dish/pic3.jpg"
+                          src="/{{image}}"
                           alt=""
-                          style="width: 50px; height: 50px"
+                          style="width: 80px; height: 80px"
                           class="rounded-circle"
                         />
                       </div>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Meat, Potatoes, Rice, Tomatoe</p>
+                      <p class="fw-normal mb-1 des">{{description}}</p>
                     </td>
-                    <td>BREAKFAST</td>
-                    <td>$50</td>
                     <td>
                       <div class="d-flex">
                         <a
@@ -118,7 +79,8 @@
                       </div>
                     </td>
                   </tr>
-                  
+                  {{/each}}
+
                 </tbody>
               </table>
             </div>
@@ -128,3 +90,4 @@
     </div>
   </div>
 </div>
+

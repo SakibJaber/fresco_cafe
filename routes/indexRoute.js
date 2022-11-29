@@ -24,6 +24,7 @@ const adminProfile = require( './adminProfile' )
 const adminBlogRoute = require( './adminBlogRoute' )
 const adminMenuRoute = require( './adminMenuRoute' )
 const adminChefRoute = require( './adminChefRoute' )
+const adminReservationRoute = require( './adminReservationRoute' )
 
 
 router.use( `/admin`, adminRoute );
@@ -31,14 +32,10 @@ router.use( `/admin`, adminProfile );
 router.use( `/admin`, adminBlogRoute);
 router.use( `/admin`, adminMenuRoute);
 router.use( `/admin`, adminChefRoute);
+router.use( `/admin`, adminReservationRoute);
 
 
 
-// API ROUTES
-
-// const api = process.env.API_URL;
-
-// router.use(`${api}/menu`, menuRoute);
 
 
 

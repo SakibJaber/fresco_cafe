@@ -1,11 +1,20 @@
-
-p {
-  width: 250px;
+.ppp {
+  width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.des {
+  line-height: 1.5em;
+  height: 5em; /* height is 2x line-height, so two lines will display */
+  overflow: hidden;
+}
+.tit {
+  line-height: 1.5em;
+  height: 3em; /* height is 2x line-height, so two lines will display */
+  width: 200px;
+  overflow: hidden;
+}
 
 .js .inputfile {
   width: 0.1px;
@@ -42,7 +51,6 @@ p {
   color: #aaaaaa;
 }
 
-
 .card-0 {
   min-height: 110vh;
   background: linear-gradient(-20deg, rgb(255, 255, 255) 50%, #0275d8 50%);
@@ -54,8 +62,6 @@ p {
   font-size: 15px;
   line-height: 25px !important;
   font-weight: 500;
-
-
 }
 
 .container {
@@ -63,21 +69,17 @@ p {
   border-radius: 20px;
 }
 
-
-
 .btn {
   letter-spacing: 1px;
 }
 
-select:active{
+select:active {
   box-shadow: none !important;
   outline-width: 0 !important;
-
 }
-select:after{
+select:after {
   box-shadow: none !important;
   outline-width: 0 !important;
-
 }
 input,
 textarea {
@@ -88,19 +90,18 @@ textarea {
   margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
-  color: #2C3E50;
+  color: #2c3e50;
   font-size: 14px;
   letter-spacing: 1px;
   resize: none;
-
 }
 
 select:focus,
 input:focus {
   box-shadow: none !important;
-  border: 1px solid #2196F3 !important;
+  border: 1px solid #2196f3 !important;
   outline-width: 0 !important;
-  font-weight: 400
+  font-weight: 400;
 }
 
 label {
@@ -114,19 +115,19 @@ textarea:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #304FFE;
-  outline-width: 0
+  border: 1px solid #304ffe;
+  outline-width: 0;
 }
 
 button:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  outline-width: 0
+  outline-width: 0;
 }
 
 .form-control {
-  height: calc(2em + .75rem + 3px);
+  height: calc(2em + 0.75rem + 3px);
 }
 
 .inner-card {
@@ -141,12 +142,11 @@ button:focus {
 .card-1 {
   border-radius: 17px;
   color: black;
-  box-shadow: 2px 4px 15px 0px rgb(0, 0, 0 , 0.5) !important;
+  box-shadow: 2px 4px 15px 0px rgb(0, 0, 0, 0.5) !important;
 }
 
 #file {
   border: 2px dashed #92b0b3 !important;
-
 }
 
 .color input {
@@ -165,12 +165,10 @@ button:focus {
   text-align: center;
 }
 
-
 #file {
   display: inline-block;
   width: 100%;
   padding: 95px 0 0 100%;
-  background: url('https://i.imgur.com/VXWKoBD.png') top center no-repeat #fff;
+  background: url("https://i.imgur.com/VXWKoBD.png") top center no-repeat #fff;
   background-size: 55px 55px;
 }
-
