@@ -1,11 +1,47 @@
 const Post = require("../models/blogModel");
 
 const getBlog = (req, res) => {
-  res.render("frontend/blog", { layout: "main.hbs" });
+  Post.find((err, docs) => {
+    if (err) {
+      return res.json({ error: "something went wrong" });
+    }
+    let data = [];
+    docs.forEach((el) => {
+      data.push({
+        title: el.title,
+        description: el.description,
+        image: el.image,
+        id: el._id,
+        createdAt: el.createdAt,
+      });
+    });
+    res.render("frontend/blog", {
+      title: "Blog",
+      layout: "main.hbs",
+      data: data,
+    });
+  });
 };
 
 const getSingleBlog = (req, res) => {
-  res.render("frontend/blog-single", { layout: "main.hbs" });
+  Post.findById(req.params.id)
+    .then((blog) => {
+      // blog list
+      const details = {
+        title: blog.title,
+        
+        description: blog.description,
+        image: blog.image,
+      };
+      res.render("frontend/blog-single", {
+        title: "Blog",
+        layout: "main.hbs",
+        blog: details,
+      });
+    })
+    .catch((err) => {
+      res.json({ error: "Somethiong went wrong!" });
+    });
 };
 
 const getAddBlog = (req, res) => {

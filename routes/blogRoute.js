@@ -8,7 +8,7 @@ const {
 
 
 router.get("/", getBlog);
-router.get("/single", getSingleBlog);
+router.get("/single/:id", getSingleBlog);
 
 
 

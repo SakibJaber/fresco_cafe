@@ -1,3 +1,28 @@
+.ppp {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.des {
+  line-height: 1.5em;
+  height: 5em; /* height is 2x line-height, so two lines will display */
+  overflow: hidden;
+}
+.tit {
+  line-height: 1.5em;
+  height: 3em; /* height is 2x line-height, so two lines will display */
+  width: 200px;
+  overflow: hidden;
+}
+.time {
+  line-height: 1.5em;
+  height: 1.5em; /* height is 2x line-height, so two lines will display */
+  width: 120px;
+  overflow: hidden;
+}
+
+
 select option {
   background: rgb(48, 48, 48);
   color: #fff;
