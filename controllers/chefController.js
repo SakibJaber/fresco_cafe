@@ -1,7 +1,26 @@
 const Chef = require("../models/chefModel");
 
 const getChef = (req, res) => {
-  res.render("frontend/chef", { layout: "main.hbs" });
+  Chef.find((err, docs) => {
+    if (err) {
+      return res.json({ error: "something went wrong" });
+    }
+    let data = [];
+    docs.forEach((el) => {
+      data.push({
+        name: el.name,
+        designation: el.designation,
+        image: el.image,
+        about: el.about,
+      });
+    });
+    res.render("frontend/chef", {
+      title: "Blog",
+      layout: "main.hbs",
+      data: data,
+    });
+  });
+  
 };
 
 const getAddChef = (req, res) => {

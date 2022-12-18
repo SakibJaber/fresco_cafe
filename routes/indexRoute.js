@@ -25,6 +25,7 @@ const adminBlogRoute = require( './adminBlogRoute' )
 const adminMenuRoute = require( './adminMenuRoute' )
 const adminChefRoute = require( './adminChefRoute' )
 const adminReservationRoute = require( './adminReservationRoute' )
+const adminContactRoute = require( './adminContactRoute' )
 
 
 router.use( `/admin`, adminRoute );
@@ -33,6 +34,7 @@ router.use( `/admin`, adminBlogRoute);
 router.use( `/admin`, adminMenuRoute);
 router.use( `/admin`, adminChefRoute);
 router.use( `/admin`, adminReservationRoute);
+router.use( `/admin`, adminContactRoute);
 
 
 
