@@ -16,15 +16,10 @@ app.listen(PORT || 5000, (req, res) => {
 
 
 
-// TODO: Add Reservation Section in Dashboard
-// TODO: Complete Review Section => Dashboard>Review
-// TODO: Add Authentication & Authorization
-// TODO: Complete Contact Section
+
 // TODO: Integrate Order Portion
 // TODO: Integrate Chat
 // TODO: Integrate Mail
 // TODO: Integrate Notification
-// TODO: Integrate File Upload
-// TODO: 
 
 
