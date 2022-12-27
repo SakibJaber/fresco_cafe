@@ -1,5 +1,6 @@
 const Contact = require("../models/contactModel");
 
+
 const getContact = (req, res) => {
   res.render("frontend/contact", { layout: "main.hbs" });
 };
@@ -16,6 +17,7 @@ const getContactList = (req, res) => {
         email: el.email,
         subject: el.subject,
         message: el.message,
+        id: el._id,
       });
     });
     res.render("dashboard/contactList", {
@@ -44,8 +46,20 @@ const postContact = async (req, res) => {
   }
 };
 
+const deleteContact = async (req, res) => {
+  Contact.findByIdAndRemove(req.params.id, (err, blog) => {
+    if (err) {
+      res.render("error", { errorStatus: 500 });
+    }
+    // /delete file
+   
+    res.redirect("/admin/Contacts");
+  });
+};
+
 module.exports = {
   getContact,
   getContactList,
   postContact,
+  deleteContact,
 };

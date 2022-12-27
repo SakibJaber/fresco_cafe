@@ -1,9 +1,11 @@
 const Post = require("../models/blogModel");
+const fs = require("fs");
 
 const getBlog = (req, res) => {
   Post.find((err, docs) => {
     if (err) {
-      return res.json({ error: "something went wrong" });
+      req.toastr.error("Something went Wrong");
+      res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
     }
     let data = [];
     docs.forEach((el) => {
@@ -29,7 +31,7 @@ const getSingleBlog = (req, res) => {
       // blog list
       const details = {
         title: blog.title,
-        
+
         description: blog.description,
         image: blog.image,
       };
@@ -40,7 +42,8 @@ const getSingleBlog = (req, res) => {
       });
     })
     .catch((err) => {
-      res.json({ error: "Somethiong went wrong!" });
+      req.toastr.error("Something went Wrong");
+      res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
     });
 };
 
@@ -51,7 +54,8 @@ const getAddBlog = (req, res) => {
 const getBlogList = (req, res) => {
   Post.find((err, docs) => {
     if (err) {
-      return res.json({ error: "something went wrong" });
+      req.toastr.error("Something went Wrong");
+      res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
     }
     let data = [];
     docs.forEach((el) => {
@@ -59,6 +63,7 @@ const getBlogList = (req, res) => {
         title: el.title,
         description: el.description,
         image: el.image,
+        id: el._id,
       });
     });
     res.render("dashboard/blogList", {
@@ -73,7 +78,8 @@ const postBlog = async (req, res) => {
   try {
     let sampleFile;
     if (!req.files || Object.keys(req.files).length === 0) {
-      return res.status(400).json({ status: "error", message: "Missing File" });
+      req.toastr.warning("Missing file");
+      // return res.status(400).json({ status: "error", message: "Missing File" });
     }
 
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
@@ -89,57 +95,90 @@ const postBlog = async (req, res) => {
       image: filePath,
     });
     await newBlog.save();
-    return res.status(201).json({
-      message: "Blog successfully Created",
-      success: true,
-    });
+    req.toastr.success("Successfully Created Blog");
+    return res.redirect("/admin/blogs");
   } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-      success: false,
-    });
+    req.toastr.error("Something went Wrong");
+    res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
   }
+};
+
+const editBlog = async (req, res) => {
+  Post.findById(req.params.id).then((blog) => {
+    // blog list
+    const details = {
+      title: blog.title,
+      id: blog._id,
+      description: blog.description,
+      image: blog.image,
+    };
+    // console.log(details);
+    res.render("dashboard/updateBlog", {
+      title: "Update Blog",
+      layout: "dashboardLayout.hbs",
+      blog: details,
+    });
+  });
 };
 
 const updateBlog = async (req, res) => {
   try {
-    await Post.findByIdAndUpdate(req.params.id, req.body);
-    return res.status(201).json({
-      message: "Blog Successfully Updated",
-      success: true,
+    let sampleFile;
+    if (!req.files || Object.keys(req.files).length === 0) {
+      req.toastr.warning("Missing file");
+      res.redirect("/admin/blog/" + req.params.id + "/edit");
+    }
+    sampleFile = req.files.image;
+    let random = new Date().valueOf();
+    let filePath = "uploads/" + random + "_" + sampleFile.name;
+
+    // Use the mv() method to place the file somewhere on your server
+    sampleFile.mv("public/" + filePath, function (err) {});
+
+    const blogObj = {
+      title: req.body.title,
+      description: req.body.description,
+    };
+
+    if (filePath) {
+      blogObj.image = filePath;
+    }
+
+    Post.findByIdAndUpdate(req.params.id, blogObj, (err, blog) => {
+      if (err) {
+        req.toastr.error("Error.");
+        res.redirect("/admin/blog/" + req.params.id + "/edit");
+      }
+      req.toastr.success("Successfully Updated");
+      res.redirect("/admin/blogs");
     });
   } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-      success: false,
-    });
+    req.toastr.error("Invalid credentials.");
+    res.render("dashboard/error500");
   }
 };
 
 const deleteBlog = async (req, res) => {
-  try {
-    const deleted = await Post.findByIdAndDelete(req.params.id);
-    if (!deleted) {
-      return res.status(404).json({
-        message: "Blog Not Found",
-        success: false,
-      });
+  Post.findByIdAndRemove(req.params.id, (err, blog) => {
+    if (err) {
+      req.toastr.error("Something went Wrong");
+      res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
     }
-    return res.status(204).json({
-      message: "Blog Successfully deleted",
-      success: true,
-    });
-  } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-      success: false,
-    });
-  }
+    // /delete file
+    try {
+      fs.unlink("public/" + blog.image, () => {});
+    } catch (error) {
+      res.render("dashboard/error500");
+    }
+    req.toastr.warning("Blog Delete");
+    res.redirect("/admin/blogs");
+  });
 };
 
 module.exports = {
   getBlog,
   getSingleBlog,
+  editBlog,
   updateBlog,
   deleteBlog,
   getAddBlog,

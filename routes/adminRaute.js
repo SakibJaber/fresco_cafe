@@ -1,6 +1,6 @@
 const router = require( "express" ).Router();
 
-const { getAdmin,getAddChef,postAddChef} = require( '../controllers/adminController' );
+const { getAdmin} = require( '../controllers/adminController' );
 
 
 

@@ -1,60 +1,20 @@
-{{!-- <!DOCTYPE html>
-<html lang="en">
-
-{{>dashHead}}
-
-<body>
-
-  <!-- ======= Header ======= -->
-  {{>dashHeader}}
-  <!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-  {{>dashSidebar}}
-  <!-- End Sidebar-->
-
-  <!-- End #main -->
-  {{{body}}}
-
-  <!-- ======= Footer ======= -->
-  {{>dashFooter}}
-  <!-- End Footer -->
-
-  
-
-  <!-- Vendor JS Files -->
-{{>dashScript}}
-
-</body>
-
-</html> --}}
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 {{>dashHead}}
 <body>
-
+  {{{toasts}}}
 
     <div id="main-wrapper">
 
      {{>dashHeader}}
-
        
 		  {{>dashSidebar}}
 		
       {{{body}}}
-        
-
-		
-{{>dashFooter}}
-
+      
+  {{>dashFooter}}
     </div>
-   
-
    {{>dashScript}}
-	
-	
 </body>
 </html>

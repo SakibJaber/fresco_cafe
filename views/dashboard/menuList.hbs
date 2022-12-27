@@ -69,7 +69,23 @@
                     </td>
                     <td>{{category}}</td>
                     <td>$ {{price}}</td>
-                    
+                    <td>
+                        <div class="d-flex">
+                          <a
+                            href="/admin/menu/{{id}}/edit"
+                            class="btn btn-primary shadow btn-xs sharp mr-1"
+                          ><i class="fa fa-pencil"></i></a>
+                           <form
+                            action="/admin/menu/{{id}}"
+                            method="post"
+                          >
+                            <button
+                              type="submit"
+                              class="btn btn-danger shadow btn-xs sharp"
+                            ><i class="fa fa-trash"></i></button>
+                          </form>
+                        </div>
+                      </td>
                   </tr>
                   {{/each}}
                 </tbody>

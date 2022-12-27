@@ -9,9 +9,7 @@
       </div>
       <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a
-              href="javascript:void(0)"
-            >Chef</a></li>
+          <li class="breadcrumb-item"><a href="javascript:void(0)">Chef</a></li>
           <li class="breadcrumb-item active"><a
               href="javascript:void(0)"
             >List</a></li>
@@ -44,42 +42,40 @@
                 <tbody>
                   {{! TABLE_CONTENT }}
                   {{#each data}}
-                  <tr>
-                    <td>
-                      <div class="d-flex align-items-center">
-                        <div class="ms-3">
-                          <p class="fw-bold mb-1">{{name}}</p>
+                    <tr>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <div class="ms-3">
+                            <p class="fw-bold mb-1">{{name}}</p>
+                          </div>
                         </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center">
-                        <div class="ms-3">
-                          <p class="fw-bold mb-1">{{email}}</p>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <div class="ms-3">
+                            <p class="fw-bold mb-1">{{email}}</p>
+                          </div>
                         </div>
-                      </div>
-                    </td>
-                    
-                    <td>
-                      <p class="fw-normal mb-1 ppp">{{subject}}</p>
-                    </td>
-                    <td><p class="fw-normal mb-1 des">{{message}}</p></td>
-                    <td>
-                      <div class="d-flex">
-                        <a
-                          href="#"
-                          class="btn btn-primary shadow btn-xs sharp mr-1"
-                        ><i class="fa fa-pencil"></i></a>
-                        <a
-                          href="#"
-                          class="btn btn-danger shadow btn-xs sharp"
-                        ><i class="fa fa-trash"></i></a>
-                      </div>
-                    </td>
-                  </tr>
+                      </td>
+
+                      <td>
+                        <p class="fw-normal mb-1 ppp">{{subject}}</p>
+                      </td>
+                      <td><p class="fw-normal mb-1 des">{{message}}</p></td>
+                      <td>
+                        <div class="d-flex">
+
+                          <form action="/admin/contact/{{id}}" method="post">
+                            <button
+                              type="submit"
+                              class="btn btn-danger shadow btn-xs sharp"
+                            ><i class="fa fa-trash"></i></button>
+                          </form>
+                        </div>
+                      </td>
+                    </tr>
                   {{/each}}
-                  
-            
+
                 </tbody>
               </table>
             </div>

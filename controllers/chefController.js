@@ -1,9 +1,11 @@
 const Chef = require("../models/chefModel");
+const fs = require("fs");
 
 const getChef = (req, res) => {
   Chef.find((err, docs) => {
     if (err) {
-      return res.json({ error: "something went wrong" });
+      req.toastr.error("Something went Wrong");
+      res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
     }
     let data = [];
     docs.forEach((el) => {
@@ -20,7 +22,6 @@ const getChef = (req, res) => {
       data: data,
     });
   });
-  
 };
 
 const getAddChef = (req, res) => {
@@ -38,6 +39,7 @@ const getChefList = (req, res) => {
         designation: el.designation,
         image: el.image,
         about: el.about,
+        id: el._id,
       });
     });
     res.render("dashboard/chefList", {
@@ -52,7 +54,7 @@ const postChef = async (req, res) => {
   try {
     let sampleFile;
     if (!req.files || Object.keys(req.files).length === 0) {
-      return res.status(400).json({ status: "error", message: "Missing File" });
+      req.toastr.warning("Missing file");
     }
 
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
@@ -67,52 +69,87 @@ const postChef = async (req, res) => {
       image: filePath,
     });
     await newChef.save();
-    return res.status(201).json({
-      message: "Chef successfully Created",
-      success: true,
-    });
+    req.toastr.success("Successfully Created Chef");
+    return res.redirect("/admin/chefs");
   } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-      success: false,
-    });
+    req.toastr.error("Something went Wrong");
+    res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
   }
+};
+
+const editChef = async (req, res) => {
+  Chef.findById(req.params.id).then((chef) => {
+   
+    const details = {
+      name: chef.name,
+      id: chef._id,
+      designation: chef.designation,
+      about: chef.about,
+      image: chef.image,
+    };
+
+    res.render("dashboard/updateChef", {
+      title: "Update Chef",
+      layout: "dashboardLayout.hbs",
+      chef: details,
+    });
+  });
 };
 
 const updateChef = async (req, res) => {
   try {
-    await Chef.findByIdAndUpdate(req.params.id, req.body);
-    return res.status(201).json({
-      message: "Chef Successfully Updated",
-      success: true,
+    let sampleFile;
+    if (!req.files || Object.keys(req.files).length === 0) {
+      req.toastr.warning("Missing file");
+      res.redirect("/admin/blog/" + req.params.id + "/edit");
+    }
+    sampleFile = req.files.image;
+    let random = new Date().valueOf();
+    let filePath = "uploads/" + random + "_" + sampleFile.name;
+
+    // Use the mv() method to place the file somewhere on your server
+    sampleFile.mv("public/" + filePath, function (err) {});
+
+    const chefObj = {
+      name: req.body.name,
+      designation: req.body.designation,
+      about: req.body.about,
+    };
+
+    if (filePath) {
+      chefObj.image = filePath;
+    }
+
+    Chef.findByIdAndUpdate(req.params.id, chefObj, (err, chef) => {
+      if (err) {
+        req.toastr.error("Error.");
+        res.redirect("/admin/chef/" + req.params.id + "/edit");
+      }
+      req.toastr.success("Successfully Updated");
+      res.redirect("/admin/chefs");
     });
   } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-      success: false,
-    });
+    req.toastr.error("Something went Wrong");
+    res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
   }
 };
 
 const deleteChef = async (req, res) => {
-  try {
-    const deleted = await Chef.findByIdAndDelete(req.params.id);
-    if (!deleted) {
-      return res.status(404).json({
-        message: "Chef Not Found",
-        success: false,
-      });
+  Chef.findByIdAndRemove(req.params.id, (err, blog) => {
+    if (err) {
+      res.render("error", { errorStatus: 500 });
     }
-    return res.status(204).json({
-      message: "Chef Successfully deleted",
-      success: true,
-    });
-  } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-      success: false,
-    });
-  }
+    // /delete file
+    try {
+      fs.unlink("public/" + blog.image, () => {
+        console.log("File deleted");
+      });
+    } catch (error) {
+      req.toastr.error("Something went Wrong");
+      res.render("dashboard/error500", { layout: "dashboardLayout.hbs" });
+    }
+    res.redirect("/admin/chefs");
+  });
 };
 
 module.exports = {
@@ -120,6 +157,7 @@ module.exports = {
   getAddChef,
   getChefList,
   postChef,
+  editChef,
   updateChef,
   deleteChef,
 };
