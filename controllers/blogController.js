@@ -79,7 +79,6 @@ const postBlog = async (req, res) => {
     let sampleFile;
     if (!req.files || Object.keys(req.files).length === 0) {
       req.toastr.warning("Missing file");
-      // return res.status(400).json({ status: "error", message: "Missing File" });
     }
 
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file

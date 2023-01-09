@@ -6,7 +6,7 @@ const validationRules = () => {
       .trim()
       .isLength({ min: 2, max: 32 })
       .withMessage("Name must be between 2 and 32 characters long"),
-      check("email")
+    check("email")
       .not()
       .isEmpty()
       .withMessage("email is required")
@@ -15,14 +15,12 @@ const validationRules = () => {
       .withMessage("email not valid"),
     check("phone", "Invlid Number")
       .trim()
-      .isLength({ min: 10, max: 12 })
+      .isLength({ min: 10, max: 13 })
       .notEmpty(),
     check("bookingDate", "Must be a valid date").notEmpty(),
 
     check("bookingTime", "Must be a valid Time").notEmpty(),
-    check( "guest", "Must have a guest" ).notEmpty(),
-    
-    
+    check("guest", "Must have a guest").notEmpty(),
   ];
 };
 

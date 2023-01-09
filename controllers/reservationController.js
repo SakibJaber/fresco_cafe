@@ -35,15 +35,11 @@ const postReservation = async (req, res) => {
       ...req.body,
     });
     await newReservation.save();
-    return res.status(201).json({
-      message: "Reservation successfully added",
-      success: true,
-    });
+    req.toastr.success("Table Booked");
+    res.redirect("/");
   } catch (err) {
-    return res.status(500).json({
-      message: err.message,
-      success: false,
-    });
+    req.toastr.warning("Please Filup from properly");
+    res.redirect("/reservation");
   }
 };
 
