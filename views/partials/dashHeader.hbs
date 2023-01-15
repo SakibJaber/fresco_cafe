@@ -624,21 +624,31 @@
               </div>
             </div>
           </div>
+          {{! ///////////////// }}
           <div class="card-footer type_msg">
+            {{!-- <div class="input-group">
+              {{!-- <form id="form" action="" method="post"> --}}
+                <textarea
+                  class="form-control"
+                  id="input"
+                  placeholder="Type your message..."
+                ></textarea>
+                <div class="input-group-append">
+                  <button class="btn btn-primary"><i
+                      class="fa fa-location-arrow"
+                    ></i>i</button>
+                </div>
+              {{!-- </form> --}}
+            </div> --}}
             <div class="input-group">
-              <textarea
-                class="form-control"
-                placeholder="Type your message..."
-              ></textarea>
-              <div class="input-group-append">
-                <button type="button" class="btn btn-primary"><i
-                    class="fa fa-location-arrow"
-                  ></i></button>
-              </div>
+              <form id="form" action="">
+            <input id="input" autocomplete="off" /><button>Send</button>
+            </form>
             </div>
           </div>
         </div>
       </div>
+                  {{!-- ALERTS --}}
       <div class="tab-pane fade" id="alerts" role="tabpanel">
         <div class="card mb-sm-3 mb-md-0 contacts_card">
           <div class="card-header chat-list-header text-center">
@@ -1084,10 +1094,7 @@
               <img src="/dashboard/images/profile/pic1.jpg" width="20" alt="" />
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a
-                href="profile"
-                class="dropdown-item ai-icon"
-              >
+              <a href="profile" class="dropdown-item ai-icon">
                 <svg
                   id="icon-user1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1159,3 +1166,19 @@
     </nav>
   </div>
 </div>
+
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script>
+  var socket = io(); 
+   var form = document.getElementById('form');
+  var input = document.getElementById('input');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) {
+      socket.emit('chat message', input.value);
+      input.value = '';
+    }
+  });
+
+</script>

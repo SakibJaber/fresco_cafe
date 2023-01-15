@@ -12,7 +12,9 @@
 
 <!-- Counter Up -->
 <script src="/dashboard/vendor/waypoints/jquery.waypoints.min.js"></script>
-<script src="/dashboard/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+<script
+  src="/dashboard/vendor/jquery.counterup/jquery.counterup.min.js"
+></script>
 
 <!-- Apex Chart -->
 <script src="/dashboard/vendor/apexchart/apexchart.js"></script>
@@ -23,38 +25,23 @@
 <!-- Dashboard 1 -->
 <script src="/dashboard/js/dashboard/dashboard-1.js"></script>
 
-
-  
-{{!-- INPUT_FILE --}}
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 <script>
-  'use strict';
-
-;( function ( document, window, index )
-{
-	var inputs = document.querySelectorAll( '.inputfile' );
-	Array.prototype.forEach.call( inputs, function( input )
-	{
-		var label	 = input.nextElementSibling,
-			labelVal = label.innerHTML;
-
-		input.addEventListener( 'change', function( e )
-		{
-			var fileName = '';
-			if( this.files && this.files.length > 1 )
-				fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-			else
-				fileName = e.target.value.split( '\\' ).pop();
-
-			if( fileName )
-				label.querySelector( 'span' ).innerHTML = fileName;
-			else
-				label.innerHTML = labelVal;
-		});
-
-		// Firefox bug fix
-		input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
-		input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
-	});
-}( document, window, 0 ));
+  var socket = io();
 </script>
 
+{{! INPUT_FILE }}
+<script>
+  'use strict'; ;( function ( document, window, index ) { var inputs =
+  document.querySelectorAll( '.inputfile' ); Array.prototype.forEach.call(
+  inputs, function( input ) { var label = input.nextElementSibling, labelVal =
+  label.innerHTML; input.addEventListener( 'change', function( e ) { var
+  fileName = ''; if( this.files && this.files.length > 1 ) fileName = (
+  this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}',
+  this.files.length ); else fileName = e.target.value.split( '\\' ).pop(); if(
+  fileName ) label.querySelector( 'span' ).innerHTML = fileName; else
+  label.innerHTML = labelVal; }); // Firefox bug fix input.addEventListener(
+  'focus', function(){ input.classList.add( 'has-focus' ); });
+  input.addEventListener( 'blur', function(){ input.classList.remove(
+  'has-focus' ); }); }); }( document, window, 0 ));
+</script>
