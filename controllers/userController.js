@@ -9,6 +9,19 @@ const getLogin = (req, res) => {
   res.render("dashboard/login", { layout: "auth.hbs" });
 };
 
+
+
+// app.get('/auth/google',
+//   passport.authenticate('google', { scope: ['profile'] }));
+
+// app.get('/admin', 
+//   passport.authenticate('google', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect('/');
+//   });
+
+
 const postRegister = async (req, res) => {
   let { username, email, password } = req.body;
 

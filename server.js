@@ -11,9 +11,9 @@ mongoose
   .catch((err) => console.log(err));
 
 io.on("connection", (socket) => {
-  console.log("user connected");
+  console.log("user connected" , socket.id);
   socket.on("disconnect", function () {
-    console.log("user disconnected");
+    console.log("user disconnected", socket.id);
   });
 });
 

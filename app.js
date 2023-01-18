@@ -19,6 +19,7 @@ const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 
+require("./config/passport")(passport);
 app.use(cors());
 app.options("*", cors());
 app.use(fileUpload());
@@ -64,6 +65,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(express.session({ secret: process.env.SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -74,10 +76,9 @@ app.use(function (req, res, next) {
   res.render("dashboard/error404");
 });
 
-
-io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    console.log('message: ' + msg);
+io.on("connection", (socket) => {
+  socket.on("chat message", (msg) => {
+    console.log("message: " + msg);
   });
 });
 
